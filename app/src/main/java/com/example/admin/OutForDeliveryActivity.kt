@@ -16,6 +16,10 @@ class OutForDeliveryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.backButton.setOnClickListener {
+            finish()
+        }
+
         val customerName = arrayListOf(
             "John Doe",
             "Jane Smith",
