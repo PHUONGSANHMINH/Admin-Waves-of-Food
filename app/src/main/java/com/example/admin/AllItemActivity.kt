@@ -23,6 +23,9 @@ class AllItemActivity : AppCompatActivity() {
             R.drawable.menu5,
             R.drawable.menu4
         )
+        binding.backButton.setOnClickListener {
+            finish()
+        }
         val adapter = AddItemAdapter(
             ArrayList(menuFoodName),
             ArrayList(menuItemPrice),
