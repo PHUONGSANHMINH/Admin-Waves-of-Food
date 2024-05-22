@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OutForDeliveryActivity">
+    android:background="@color/white"
+    tools:context=".PendingOrderActivity">
 
     <ImageButton
         android:id="@+id/backButton"
@@ -31,16 +32,14 @@
         app:layout_constraintTop_toTopOf="@+id/backButton" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/deliveryRecyclerView"
+        android:id="@+id/pandingOrderRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        tools:listitem="@layout/pending_orders_item"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintVertical_bias="1.0"
-        tools:listitem="@layout/delivery_item" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
