@@ -80,7 +80,7 @@
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="0dp"
+        android:layout_width="354dp"
         android:layout_height="57dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/edittextshape"
@@ -98,26 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <EditText
-        android:id="@+id/EmailOrPhone"
-        android:layout_width="354dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/edittextshape"
-        android:drawableLeft="@drawable/icon_home"
-        android:drawablePadding="15dp"
-        android:elevation="2dp"
-        android:fontFamily="@font/lato_regular"
-        android:hint="Name Of Restorent"
-        android:inputType="textPassword"
-        android:outlineSpotShadowColor="@color/textColor"
-        android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
-
-    <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/emailOrPhone"
         android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginTop="12dp"
@@ -128,9 +109,9 @@
         android:fontFamily="@font/lato_regular"
         android:hint="Email Or Phone Number"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/EmailOrPhone"
-        app:layout_constraintStart_toStartOf="@+id/EmailOrPhone"
-        app:layout_constraintTop_toBottomOf="@+id/EmailOrPhone" />
+        app:layout_constraintEnd_toEndOf="@+id/restaurantName"
+        app:layout_constraintStart_toStartOf="@+id/restaurantName"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
 
     <EditText
         android:id="@+id/password"
@@ -143,12 +124,31 @@
         android:fontFamily="@font/lato_regular"
         android:hint="Password"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintEnd_toEndOf="@+id/emailOrPhone"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="@+id/emailOrPhone"
+        app:layout_constraintTop_toBottomOf="@+id/emailOrPhone" />
+
+    <EditText
+        android:id="@+id/restaurantName"
+        android:layout_width="354dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edittextshape"
+        android:drawableLeft="@drawable/icon_home"
+        android:drawablePadding="15dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/lato_regular"
+        android:hint="Name Of Restorant"
+        android:outlineSpotShadowColor="@color/textColor"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/createButton"
+        android:id="@+id/createUserButton"
         android:layout_width="157dp"
         android:layout_height="57dp"
         android:layout_marginTop="12dp"
@@ -171,9 +171,9 @@
         android:layout_marginTop="10dp"
         android:textColor="@color/textColor"
         android:fontFamily="@font/lato_bold"
-        app:layout_constraintEnd_toEndOf="@+id/createButton"
-        app:layout_constraintStart_toStartOf="@+id/createButton"
-        app:layout_constraintTop_toBottomOf="@+id/createButton" />
+        app:layout_constraintEnd_toEndOf="@+id/createUserButton"
+        app:layout_constraintStart_toStartOf="@+id/createUserButton"
+        app:layout_constraintTop_toBottomOf="@+id/createUserButton" />
 
 
 
