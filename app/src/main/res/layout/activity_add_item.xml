@@ -44,7 +44,7 @@
                 app:layout_constraintTop_toTopOf="@+id/backButton" />
 
             <EditText
-                android:id="@+id/enterFoodName"
+                android:id="@+id/foodName"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="8dp"
@@ -63,7 +63,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
             <EditText
-                android:id="@+id/enterFoodPrice"
+                android:id="@+id/foodPrice"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:background="@drawable/edittextshape"
@@ -75,9 +75,9 @@
                 android:outlineSpotShadowColor="@color/textColor"
                 android:paddingLeft="15dp"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/enterFoodName"
-                app:layout_constraintStart_toStartOf="@+id/enterFoodName"
-                app:layout_constraintTop_toBottomOf="@+id/enterFoodName" />
+                app:layout_constraintEnd_toEndOf="@+id/foodName"
+                app:layout_constraintStart_toStartOf="@+id/foodName"
+                app:layout_constraintTop_toBottomOf="@+id/foodName" />
 
             <TextView
                 android:id="@+id/selectImage"
@@ -91,9 +91,9 @@
                 android:paddingRight="15dp"
                 android:text="Select Image"
                 android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="@+id/enterFoodPrice"
-                app:layout_constraintStart_toStartOf="@+id/enterFoodPrice"
-                app:layout_constraintTop_toBottomOf="@+id/enterFoodPrice" />
+                app:layout_constraintEnd_toEndOf="@+id/foodPrice"
+                app:layout_constraintStart_toStartOf="@+id/foodPrice"
+                app:layout_constraintTop_toBottomOf="@+id/foodPrice" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView8"
@@ -155,7 +155,7 @@
                 android:fontFamily="@font/yeon_sung"
                 android:gravity="center_vertical"
                 android:paddingLeft="15dp"
-                android:text="Short Description"
+                android:text="Ingredients"
 
                 android:textColor="@color/black"
                 android:layout_marginLeft="8dp"
