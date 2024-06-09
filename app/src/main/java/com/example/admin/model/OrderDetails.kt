@@ -2,8 +2,9 @@ package com.example.admin.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import java.io.Serializable
 
-class OrderDetails() : Parcelable {
+class OrderDetails() : Serializable {
     var userUid : String ?= null
     var userName : String ?= null
     var foodNames : MutableList<String> ?= null
@@ -13,8 +14,8 @@ class OrderDetails() : Parcelable {
     var address : String ?= null
     var totalPrice : String ?= null
     var phoneNumber : String ?= null
-    var orderAccepted : Boolean ?= null
-    var paymentReceived : Boolean ?= null
+    var orderAccepted : Boolean = false
+    var paymentReceived : Boolean = false
     var itemPushKey : String ?= null
     var currentTime : Long = 0
 
@@ -24,17 +25,17 @@ class OrderDetails() : Parcelable {
         address = parcel.readString()
         totalPrice = parcel.readString()
         phoneNumber = parcel.readString()
-        orderAccepted = parcel.readValue(Boolean::class.java.classLoader) as? Boolean
-        paymentReceived = parcel.readValue(Boolean::class.java.classLoader) as? Boolean
+        orderAccepted = parcel.readByte() != 0.toByte()
+        paymentReceived = parcel.readByte() != 0.toByte()
         itemPushKey = parcel.readString()
         currentTime = parcel.readLong()
     }
 
-    override fun describeContents(): Int {
+    fun describeContents(): Int {
         TODO("Not yet implemented")
     }
 
-    override fun writeToParcel(dest: Parcel, flags: Int) {
+    fun writeToParcel(dest: Parcel, flags: Int) {
         TODO("Not yet implemented")
     }
 

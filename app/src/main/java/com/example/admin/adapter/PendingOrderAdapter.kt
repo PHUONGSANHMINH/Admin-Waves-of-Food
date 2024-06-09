@@ -14,14 +14,16 @@ class PendingOrderAdapter(
     private val context : Context,
     private val customerNames: MutableList<String>,
     private val quantity: MutableList<String>,
-    private val foodImage: MutableList<String>,
+    private val foodImages: MutableList<String>,
     private val itemClicked : OnItemClicked
 ): RecyclerView.Adapter<PendingOrderAdapter.PendingOrderViewHolder>() {
 
     interface OnItemClicked{
         fun onItemClickListener(position: Int)
+        fun onItemAcceptClickListener(position: Int)
+        fun onItemDispatchClickListener(position: Int)
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingOrderViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingOrderViewHolder {
         val binding = PendingOrdersItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PendingOrderViewHolder(binding)
     }
@@ -38,9 +40,9 @@ class PendingOrderAdapter(
             binding.apply {
                 customerName.text = customerNames[position]
                 pendingOrderQuantity.text = quantity[position]
-                var uriSing = foodImage[position]
-                var uri = Uri.parse(uriSing)
-                Glide.with(context).load(uri).into(orderFoodImage)
+                var uriString = foodImages[position]
+                var uri = Uri.parse(uriString)
+                Glide.with(context).load(uri).into(foodImage)
 
                 orderedAcceptButton.apply {
                     if (!isAccepted) {
@@ -53,10 +55,13 @@ class PendingOrderAdapter(
                             text = "Dispatch"
                             isAccepted = true
                             showToast("Order is accepted")
+                            itemClicked.onItemAcceptClickListener(position)
                         } else {
                             customerNames.removeAt(adapterPosition)
                             notifyItemRemoved(adapterPosition)
                             showToast("Order is dispatched")
+                            itemClicked.onItemDispatchClickListener(position)
+
                         }
                     }
                 }
