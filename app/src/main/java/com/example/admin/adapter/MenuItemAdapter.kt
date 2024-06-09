@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.example.admin.databinding.ItemItemBinding
 import com.example.admin.model.AllMenu
 import com.google.firebase.database.DatabaseReference
@@ -13,7 +14,8 @@ import com.google.firebase.database.DatabaseReference
 class MenuItemAdapter(
     private val context: Context,
     private val menuList: ArrayList<AllMenu>,
-    databaseReference: DatabaseReference
+    databaseReference: DatabaseReference,
+    private val onDeleteClickListener: (position : Int)->Unit
 ): RecyclerView.Adapter<MenuItemAdapter.AddItemViewHolder>() {
     private val itemQuantities = IntArray(menuList.size) {1}
 
@@ -45,7 +47,7 @@ class MenuItemAdapter(
                 }
 
                 deleteButton.setOnClickListener {
-                    deleteQuantity(position)
+                    onDeleteClickListener(position)
                 }
             }
         }

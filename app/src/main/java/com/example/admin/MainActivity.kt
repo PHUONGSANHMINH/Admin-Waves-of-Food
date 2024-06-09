@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.disklrucache.DiskLruCache.Value
 import com.example.admin.databinding.ActivityMainBinding
+import com.example.admin.model.OrderDetails
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -54,6 +55,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, PendingOrderActivity::class.java)
             startActivity(intent)
         }
+        binding.logoutButton.setOnClickListener{
+            auth.signOut()
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
 
         pendingOrders()
         competeOrders()
@@ -68,7 +73,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun wholeTimeErning() {
-        TODO("Not yet implemented")
+        var listPfTotalPay = mutableListOf<Int>()
+        completedOrderReference = FirebaseDatabase.getInstance().reference.child("CompleteOrder")
+        completedOrderReference.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (orderSnapshot in snapshot.children){
+                    var completeOrder = orderSnapshot.getValue(OrderDetails::class.java)
+
+                    completeOrder?.totalPrice?.replace("$","")?.toIntOrNull()
+                        ?.let {
+                            i->listPfTotalPay.add(i)
+                        }
+                }
+                binding.wholeTimeEarning.text = listPfTotalPay.sum().toString() + "$"
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
     private fun competeOrders() {

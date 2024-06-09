@@ -77,6 +77,7 @@ class AddItemActivity : AppCompatActivity() {
                     downloadUrl->
                     //create a new menu item
                     val newItem = AllMenu(
+                        newItemKey,
                         foodName        = foodName,
                         foodPrice       = foodPrice,
                         foodDescription = foodDescription,
